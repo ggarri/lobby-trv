@@ -5,7 +5,7 @@ Welcome to trivago lobby
 #### Step 1 
 Install nodeJs
 #### Step 2 
-nmp install
+$ npm install
 
 ###  Run Server
 $ node server.js
