@@ -3,45 +3,66 @@ angular.module('starter.services', [])
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
+  var hotelBasicChats = [{
+        id: 'L',
+        name: 'Lobby',
+        description: 'What\'s Dudes',
+        face: '/img/lobby.png'
+      }, {
+        id: 'C',
+        name: 'Concierge',
+        description: 'What\'s up Guests',
+        face: '/img/concierge.png'
+      }
+  ];
+
   // Some fake testing data
-  var chats = [{
+  var hotelChats = [{
     id: 0,
     name: 'Ben Sparrow',
     description: 'You on your way?',
     face: '/img/profile.png'
   }, {
     id: 1,
-    name: 'Max Lynx',
-    description: 'Hey, it\'s me',
+    name: 'Going for dinner',
+    description: 'Who is in tonight for tapas',
     face: '/img/profile.png'
   },{
     id: 2,
-    name: 'Adam Bradleyson',
+    name: 'Visit the city',
     description: 'I should buy a boat',
     face: '/img/profile.png'
   }, {
     id: 3,
-    name: 'Perry Governor',
+    name: 'Drinking in lobby',
     description: 'Look at my mukluks!',
     face: '/img/profile.png'
   }, {
     id: 4,
-    name: 'Mike Harrington',
+    name: 'Sharing taxi',
     description: 'This is wicked good ice cream.',
     face: '/img/profile.png'
   }];
 
   return {
-    all: function() {
-      return chats;
+    hotelAll: function() {
+      return hotelChats;
+    },
+    hotelBasicAll: function() {
+      return hotelBasicChats;
     },
     remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+      hotelChats.splice(hotelChats.indexOf(chat), 1);
     },
     get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+      for (var i = 0; i < hotelBasicChats.length; i++) {
+        if (hotelBasicChats[i].id === String(chatId)) {
+          return hotelBasicChats[i];
+        }
+      }
+      for (var i = 0; i < hotelChats.length; i++) {
+        if (hotelChats[i].id === parseInt(chatId)) {
+          return hotelChats[i];
         }
       }
       return null;
@@ -55,27 +76,27 @@ angular.module('starter.services', [])
   var hotels = [{
     id: 0,
     name: 'Nikko Düsseldorf',
-    description: 'Dusseldorf, 0.7 km to City centre',
+    description: 'Dusseldorf, distance 0.1 km away',
     img: '/img/hotel.jpeg'
   }, {
     id: 1,
     name: 'Max Lynx',
-    description: 'Dusseldorf, 0.7 km to City centre',
+    description: 'Dusseldorf, distance 0.2 km away',
     img: '/img/hotel.jpeg'
   },{
     id: 2,
     name: 'Best Western Düsseldorf City',
-    description: 'Dusseldorf, 3.7 km to City centre',
+    description: 'Dusseldorf, distance 0.5 km away',
     img: '/img/hotel.jpeg'
   }, {
     id: 3,
     name: 'Motel One Düsseldorf Hauptba',
-    description: 'Dusseldorf, 0.6 km to City centre',
+    description: 'Dusseldorf, distance 0.8 km away',
     img: '/img/hotel.jpeg'
   }, {
     id: 4,
     name: 'Düsseldorf Mitte',
-    description: 'Dusseldorf, 0.7 km to City centr',
+    description: 'Dusseldorf, distance 1.2 km away',
     img: '/img/hotel.jpeg'
   }];
 

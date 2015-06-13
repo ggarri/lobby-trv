@@ -41,7 +41,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   .state('tab.dash', {
     url: '/hotels',
     views: {
-      'tab-dash': {
+      'tab-hotels': {
         templateUrl: 'templates/tab-hotels.html',
         controller: 'HotelsCtrl'
       }
@@ -78,6 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/hotels');
 
 });
