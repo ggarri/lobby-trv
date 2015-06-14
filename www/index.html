@@ -24,14 +24,22 @@
     <script src="js/services.js"></script>
   </head>
 
-  <body ng-app="starter">
+  <body ng-app="starter" ng-controller="HomeCtrl">
 
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
     <ion-nav-bar class="bar-stable">
+
       <ion-nav-back-button>
       </ion-nav-back-button>
+
+      <ion-nav-buttons side="right">
+        <button  ng-show="settings.userInHotel" class="button icon-left ion-android-exit exit" ng-click="removeHotelSelection()">
+          Exit
+        </button>
+      </ion-nav-buttons>
+
       <div class="nav-bar-block" nav-bar="entering">
         <ion-header-bar class="bar-stable" align-title="center">
           <img class="title-center header-item title-logo" src="/img/trivago.png" align="middle"/>

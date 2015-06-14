@@ -1,5 +1,22 @@
 angular.module('starter.services', [])
 
+.factory('UserSettings', function() {
+  var settings = {
+    userInHotel: false,
+    selectedHotel: undefined,
+    suggestHotel: true
+  };
+
+  return {
+    getSettings: function() {
+      return settings;
+    },
+    setSettings: function(field, value) {
+      settings[field] = value;
+    }
+  }
+})
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 

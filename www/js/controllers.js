@@ -1,10 +1,24 @@
 angular.module('starter.controllers', [])
 
-.controller('HotelsCtrl', function($scope, Hotels) {
-      $scope.hotels = Hotels.all();
-      $scope.remove = function(hotel) {
-        Hotels.remove(hotel);
-      }
+
+.controller('HomeCtrl', function($scope, $location, UserSettings) {
+    $scope.settings = UserSettings.getSettings();
+
+    $scope.removeHotelSelection = function() {
+        UserSettings.setSettings('userInHotel', false);
+        UserSettings.setSettings('selectedHotel', undefined);
+        $location.path("/");
+    }
+})
+
+.controller('HotelsCtrl', function($scope, $location, Hotels, UserSettings) {
+    $scope.hotels = Hotels.all();
+
+    $scope.selectHotel = function(hotel) {
+        UserSettings.setSettings('userInHotel', true);
+        UserSettings.setSettings('selectedHotel', hotel);
+        $location.path("/tab/chats");
+    }
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
@@ -27,8 +41,6 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    suggestHotel: true
-  };
+.controller('AccountCtrl', function($scope, UserSettings) {
+  $scope.settings = UserSettings.getSettings();
 });
