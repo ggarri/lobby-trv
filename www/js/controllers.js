@@ -21,7 +21,7 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
+.controller('ChatsCtrl', function($scope, UserSettings, Chats) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -29,12 +29,13 @@ angular.module('starter.controllers', [])
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-  
-  $scope.hotelChats = Chats.hotelAll();
-  $scope.hotelBasicChats = Chats.hotelBasicAll();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
+
+    $scope.settings = UserSettings.getSettings();
+    $scope.hotelChats = Chats.hotelAll();
+    $scope.hotelBasicChats = Chats.hotelBasicAll();
+    $scope.remove = function(chat) {
+        Chats.remove(chat);
+    }
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {

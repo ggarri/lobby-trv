@@ -1,6 +1,10 @@
 <ion-view>
   <ion-content>
     <ion-list>
+      <a class="item item-thumbnail-center chat-hotel-name" href="#">
+        <img ng-src="{{settings.selectedHotel.img}}">
+        <h2> {{settings.selectedHotel.name}}</h2>
+      </a>
       <div class="item item-divider">
         Services
       </div>
@@ -11,7 +15,7 @@
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
       <div class="item item-divider">
-        Personal
+        Guest Chats
       </div>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in hotelChats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}">
