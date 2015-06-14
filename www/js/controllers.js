@@ -38,8 +38,12 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ChatDetailCtrl', function($scope, $stateParams, Users, Chats) {
+    $scope.chat = Chats.get($stateParams.chatId);
+    $scope.user = Users.all;
+    $scope.getUser = function(userId) {
+        return Users.get(userId);
+    }
 })
 
 .controller('AccountCtrl', function($scope, UserSettings) {
