@@ -6,9 +6,9 @@
 -->
 <ion-view>
   <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
+    <a class="item item-thumbnail-left chat-title" href="#">
+      <img class="header" ng-src="{{chat.face}}">
+      <h2>{{chat.name}}</h2>
+    </a>
   </ion-content>
 </ion-view>

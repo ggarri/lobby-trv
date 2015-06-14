@@ -36,29 +36,29 @@ angular.module('starter.services', [])
   // Some fake testing data
   var hotelChats = [{
     id: 0,
-    name: 'Ben Sparrow',
+    name: 'Hanging out in hotel bar',
     description: 'You on your way?',
-    face: '/img/profile.png'
+    face: '/img/lobby-bar.jpg'
   }, {
     id: 1,
-    name: 'Going for dinner',
+    name: 'Going out for dinner',
     description: 'Who is in tonight for tapas',
-    face: '/img/profile.png'
+    face: '/img/dinner.png'
   },{
     id: 2,
-    name: 'Visit the city',
+    name: 'Visiting city',
     description: 'I should buy a boat',
-    face: '/img/profile.png'
+    face: '/img/duss-city.jpg'
   }, {
     id: 3,
-    name: 'Drinking in lobby',
+    name: 'Daily planning',
     description: 'Look at my mukluks!',
-    face: '/img/profile.png'
+    face: '/img/bagpack.jpg'
   }, {
     id: 4,
     name: 'Sharing taxi',
     description: 'This is wicked good ice cream.',
-    face: '/img/profile.png'
+    face: '/img/taxi.jpg'
   }];
 
   return {
