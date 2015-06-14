@@ -1,0 +1,23 @@
+
+<ion-modal-view>
+    <div class="list card" ng-if="hotel">
+        <div class="item item-avatar">
+            <img ng-src="{{user.img}}">
+            <h2>{{hotel.name}}</h2>
+            <p>{{hotel.description}}</p>
+        </div>
+
+        <div class="item item-image">
+            <img ng-src="{{hotel.img}}">
+        </div>
+
+        <a class="item item-icon-left assertive" href="#" ng-click="checkin(hotel)">
+            <i class="icon ion-checkmark-circled"></i>
+            Check-In
+        </a>
+        <a class="item item-icon-left assertive" href="#" ng-click="closeModal()">
+            <i class="icon ion-ios-close"></i>
+            Close
+        </a>
+    </div>
+</ion-modal-view>

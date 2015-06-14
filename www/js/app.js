@@ -44,7 +44,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       'tab-hotels': {
         templateUrl: 'templates/tab-hotels.html',
         controller: 'HotelsCtrl',
-        controllerAs: 'HotelsCtrl'
       }
     }
   })

@@ -39,7 +39,12 @@ angular.module('starter.services', [])
           id: 4,
           img: '/img/johnS.jpg',
           username: 'John Snow'
-        }
+        },
+          {
+              id: 5,
+              img: '/img/hotel_concierge.png',
+              username: 'Manager'
+          }
       ];
 
       return {
@@ -87,6 +92,28 @@ angular.module('starter.services', [])
         id: 'C',
         name: 'Concierge',
         description: 'What\'s up Guests',
+          messages: [
+              {
+                  userId: 5,
+                  text: 'Dear Guest, breakfast 07.00 - 10.00',
+                  date: 'Today, 1h ago'
+              },
+              {
+                  userId: 3,
+                  text: 'Does breakfast service include no lactosa milk?',
+                  date: 'Today, 32m ago'
+              },
+              {
+                  userId: 5,
+                  text: 'We don\'t, but I am going to order it to include it tomorrow. Which room number?',
+                  date: 'Today, 28m ago'
+              },
+              {
+                  userId: 3,
+                  text: 'Thanks a lot. Number 201',
+                  date: 'Today, 13m ago'
+              }
+          ],
         face: '/img/concierge.png'
       }
   ];
@@ -94,28 +121,93 @@ angular.module('starter.services', [])
   // Some fake testing data
   var hotelChats = [{
     id: 0,
-    name: 'Hanging out in hotel bar',
+    name: 'Hanging out at Hotel bar',
     description: 'You on your way?',
+      messages: [
+          {
+              userId: 4,
+              text: 'Hi guys, my name is John, I was planning to grab a beer at bar in a few minutes, if anyone wants want to hang out, I am glat to know new peeps.',
+              date: 'Today, 1h ago'
+          },
+          {
+              userId: 1,
+              text: 'Hi John, I am coming with a friend of mine too. See u there',
+              date: 'Today, 32m ago'
+          }
+      ],
     face: '/img/lobby-bar.jpg'
   }, {
     id: 1,
     name: 'Going out for dinner',
     description: 'Who is in tonight for tapas',
+      messages: [
+          {
+              userId: 3,
+              text: 'My and my boyfriend are planning to have dinner around the hotel. Anyone knows recomend us a restaurant around?',
+              date: 'Today, 1h ago'
+          },
+          {
+              userId: 2,
+              text: 'A couple of squares left there is one called King Landing, highly recommended. If you go order beef !!',
+              date: 'Today, 32min ago'
+          },
+          {
+              userId: 3,
+              text: 'Thanks, we will',
+              date: 'Today, 2min ago'
+          }
+      ],
     face: '/img/dinner.png'
   },{
     id: 2,
     name: 'Visiting city',
     description: 'I should buy a boat',
+      messages: [
+          {
+              userId: 3,
+              text: 'I am going to stay at the city just for a couple of days. Anyone knows if it is worthy visiting Kafka musseum?',
+              date: 'Today, 1h ago'
+          },
+          {
+              userId: 4,
+              text: 'Beyond a shadow of a doubt, you shouldn\'t skip that musseum',
+              date: 'Today, 32min ago'
+          }
+      ],
     face: '/img/duss-city.jpg'
   }, {
     id: 3,
-    name: 'Daily planning',
+    name: 'Party',
     description: 'Look at my mukluks!',
+      messages: [
+          {
+              userId: 3,
+              text: 'We are a group of three friends that want to go to Magaluf, Anyone is up for it?',
+              date: 'Today, 1h ago'
+          },
+          {
+              userId: 1,
+              text: 'Sure !!! :). What time?',
+              date: 'Today, 32min ago'
+          },
+          {
+              userId: 3,
+              text: '21.00 at Lobby',
+              date: 'Today, 2min ago'
+          }
+      ],
     face: '/img/bagpack.jpg'
   }, {
     id: 4,
     name: 'Sharing taxi',
     description: 'This is wicked good ice cream.',
+      messages: [
+          {
+              userId: 4,
+              text: 'We are going tomorrow morning to the aiport, anyone interested in sharing?',
+              date: 'Today, 1h ago'
+          }
+      ],
     face: '/img/taxi.jpg'
   }];
 
@@ -151,27 +243,32 @@ angular.module('starter.services', [])
   var hotels = [{
     id: 0,
     name: 'Nikko Düsseldorf',
-    description: 'Dusseldorf, distance 0.1 km away',
+    description: 'Best bar ever',
+    distance: 'Dusseldorf, distance 0.1 km away',
     img: '/img/hotel.jpeg'
   }, {
     id: 1,
     name: 'Max Lynx',
-    description: 'Dusseldorf, distance 0.2 km away',
+    description: 'Good restaurant',
+    distance: 'Dusseldorf, distance 0.2 km away',
     img: '/img/hotel.jpeg'
   },{
     id: 2,
     name: 'Best Western Düsseldorf City',
-    description: 'Dusseldorf, distance 0.5 km away',
+    description: 'Clean rooms and good service',
+    distance: 'Dusseldorf, distance 0.5 km away',
     img: '/img/hotel.jpeg'
   }, {
     id: 3,
-    name: 'Motel One Düsseldorf Hauptba',
-    description: 'Dusseldorf, distance 0.8 km away',
+    name: 'Motel One Düsseldorf Hauptbahn',
+    description: 'Friendly enviroment',
+    distance: 'Dusseldorf, distance 0.8 km away',
     img: '/img/hotel.jpeg'
   }, {
     id: 4,
     name: 'Düsseldorf Mitte',
-    description: 'Dusseldorf, distance 1.2 km away',
+    description: 'Pets are welcomed here.',
+    distance: 'Dusseldorf, distance 1.2 km away',
     img: '/img/hotel.jpeg'
   }];
 

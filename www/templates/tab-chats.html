@@ -16,6 +16,9 @@
       </ion-item>
       <div class="item item-divider">
         Guest Chats
+        <button class="button button-clear button-positive ion-plus-circled add-chat">
+          Create Chat
+        </button>
       </div>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in hotelChats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}">

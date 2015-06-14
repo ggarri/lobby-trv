@@ -11,10 +11,44 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('HotelsCtrl', function($scope, $location, Hotels, UserSettings) {
+.controller('HotelsCtrl', function($scope, $ionicModal, $location, Hotels, Users, UserSettings) {
     $scope.hotels = Hotels.all();
+    $scope.settings = UserSettings.getSettings();
+    $scope.user = Users.get($scope.settings.userId);
+
+    $ionicModal.fromTemplateUrl('/templates/checkin.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+        $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+    };
+    //Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+        $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function() {
+        // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+        // Execute action
+    });
 
     $scope.selectHotel = function(hotel) {
+        $scope.openModal();
+        $scope.hotel = hotel;
+    }
+
+    $scope.checkin = function(hotel) {
+        $scope.closeModal();
         UserSettings.setSettings('userInHotel', true);
         UserSettings.setSettings('selectedHotel', hotel);
         $location.path("/tab/chats");

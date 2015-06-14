@@ -33,6 +33,11 @@ button.exit {
     max-height: 60px;
 }
 
+button.add-chat {
+    position: absolute;
+    right: 5px;
+    top: -5px;
+}
 
 /*chat*/
 
