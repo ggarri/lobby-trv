@@ -5,8 +5,8 @@ angular.module('starter.controllers', [])
     $scope.settings = UserSettings.getSettings();
 
     $scope.removeHotelSelection = function() {
-        UserSettings.setSettings('userInHotel', false);
-        UserSettings.setSettings('selectedHotel', undefined);
+        UserSettings.setSettings('checkInHotel', false);
+        UserSettings.setSettings('selectedHotelId', undefined);
         $location.path("/");
     }
 })
@@ -49,13 +49,13 @@ angular.module('starter.controllers', [])
 
     $scope.checkin = function(hotel) {
         $scope.closeModal();
-        UserSettings.setSettings('userInHotel', true);
-        UserSettings.setSettings('selectedHotel', hotel);
+        UserSettings.setSettings('checkInHotel', true);
+        UserSettings.setSettings('selectedHotelId', hotel.id);
         $location.path("/tab/chats");
     }
 })
 
-.controller('ChatsCtrl', function($scope, UserSettings, Chats) {
+.controller('ChatsCtrl', function($scope, UserSettings, Hotels, Chats) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -68,9 +68,7 @@ angular.module('starter.controllers', [])
     $scope.hotelChats = Chats.hotelAll();
     $scope.cityChats = Chats.cityAll();
     $scope.hotelBasicChats = Chats.hotelBasicAll();
-    $scope.remove = function(chat) {
-        Chats.remove(chat);
-    }
+    $scope.hotel = Hotels.get($scope.settings.selectedHotelId);
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, $ionicScrollDelegate, $timeout, UserSettings, Users, Chats) {

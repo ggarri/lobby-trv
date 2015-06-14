@@ -1,10 +1,12 @@
 <ion-view>
   <ion-content>
     <ion-list>
-      <a class="item item-thumbnail-center chat-hotel-name" href="#">
-        <img ng-src="{{settings.selectedHotel.img}}">
-        <h2> {{settings.selectedHotel.name}}</h2>
-      </a>
+      <div class="item bar bar-header">
+        <div class="h1 title hotel-name">{{hotel.location}} -> {{hotel.name}}</div>
+        <button  ng-show="settings.checkInHotel" class="button button-clear ion-android-exit no-border" ng-click="removeHotelSelection()">
+          Checkout
+        </button>
+      </div>
       <div class="item item-divider">
         Services
       </div>

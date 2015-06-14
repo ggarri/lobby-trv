@@ -2,8 +2,8 @@ angular.module('starter.services', [])
 
 .factory('UserSettings', function() {
   var settings = {
-    userInHotel: false,
-    selectedHotel: undefined,
+    checkInHotel: false,
+    selectedHotelId: 1,
     suggestHotel: true,
     userId: 4
   };
@@ -254,33 +254,38 @@ angular.module('starter.services', [])
   // Some fake testing data
   var hotels = [{
     id: 0,
-    name: 'Nikko Düsseldorf',
+    name: 'Nikko',
     description: 'Best bar ever',
-    distance: 'Dusseldorf, distance 0.1 km away',
+    distance: '0.1 km away',
+    location: 'Dusseldorf',
     img: '/img/hotel.jpeg'
   }, {
     id: 1,
     name: 'Max Lynx',
     description: 'Good restaurant',
-    distance: 'Dusseldorf, distance 0.2 km away',
+    distance: '0.2 km away',
+      location: 'Dusseldorf',
     img: '/img/hotel.jpeg'
   },{
     id: 2,
-    name: 'Best Western Düsseldorf City',
+    name: 'Best Western City',
     description: 'Clean rooms and good service',
-    distance: 'Dusseldorf, distance 0.5 km away',
+    distance: 'distance 0.5 km away',
+      location: 'Dusseldorf',
     img: '/img/hotel.jpeg'
   }, {
     id: 3,
-    name: 'Motel One Düsseldorf Hauptbahn',
+    name: 'Motel One Hauptbahn',
     description: 'Friendly enviroment',
-    distance: 'Dusseldorf, distance 0.8 km away',
+    distance: '0.8 km away',
+      location: 'Dusseldorf',
     img: '/img/hotel.jpeg'
   }, {
     id: 4,
-    name: 'Düsseldorf Mitte',
+    name: 'Hotel Mitte',
     description: 'Pets are welcomed here.',
-    distance: 'Dusseldorf, distance 1.2 km away',
+    distance: 'distance 1.2 km away',
+      location: 'Dusseldorf',
     img: '/img/hotel.jpeg'
   }];
 

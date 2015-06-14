@@ -9,8 +9,13 @@
     height: auto;
 }
 
-button.exit {
+button.no-border {
     border: none;
+}
+
+.title.hotel-name {
+    text-align: left;
+    font-weight: bold;
 }
 
 .chat-hotel-name {
