@@ -5,7 +5,7 @@ angular.module('starter.services', [])
     userInHotel: false,
     selectedHotel: undefined,
     suggestHotel: true,
-    loggedUserId: 4
+    userId: 4
   };
 
   return {

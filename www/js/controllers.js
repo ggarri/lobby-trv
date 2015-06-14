@@ -38,14 +38,40 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Users, Chats) {
+.controller('ChatDetailCtrl', function($scope, $stateParams, UserSettings, Users, Chats) {
     $scope.chat = Chats.get($stateParams.chatId);
     $scope.user = Users.all;
+    $scope.settings = UserSettings.getSettings();
+    $scope.input = {};
+
     $scope.getUser = function(userId) {
         return Users.get(userId);
     }
-})
 
+    $scope.sendMessage = function(input, chat) {
+        if(!chat.messages) {
+            chat.messages = [];
+        }
+        chat.messages.push({
+            userId: $scope.settings.userId,
+            text: input.message,
+            date: 'Just now'
+        });
+        $scope.reset();
+    }
+
+    $scope.reset = function()
+    {
+        $scope.input = {};
+    }
+})
+.directive('inputMessage', function() {
+    return {
+        restrict: 'E',
+        scope: true,
+        templateUrl: 'templates/input-message.html'
+    };
+})
 .controller('AccountCtrl', function($scope, UserSettings) {
   $scope.settings = UserSettings.getSettings();
 });
