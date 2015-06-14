@@ -158,46 +158,7 @@ angular.module('starter.services', [])
           }
       ],
     face: '/img/dinner.png'
-  },{
-    id: 2,
-    name: 'Visiting city',
-    description: 'I should buy a boat',
-      messages: [
-          {
-              userId: 3,
-              text: 'I am going to stay at the city just for a couple of days. Anyone knows if it is worthy visiting Kafka musseum?',
-              date: 'Today, 1h ago'
-          },
-          {
-              userId: 4,
-              text: 'Beyond a shadow of a doubt, you shouldn\'t skip that musseum',
-              date: 'Today, 32min ago'
-          }
-      ],
-    face: '/img/duss-city.jpg'
-  }, {
-    id: 3,
-    name: 'Party',
-    description: 'Look at my mukluks!',
-      messages: [
-          {
-              userId: 3,
-              text: 'We are a group of three friends that want to go to Magaluf, Anyone is up for it?',
-              date: 'Today, 1h ago'
-          },
-          {
-              userId: 1,
-              text: 'Sure !!! :). What time?',
-              date: 'Today, 32min ago'
-          },
-          {
-              userId: 3,
-              text: '21.00 at Lobby',
-              date: 'Today, 2min ago'
-          }
-      ],
-    face: '/img/bagpack.jpg'
-  }, {
+  },  {
     id: 4,
     name: 'Sharing taxi',
     description: 'This is wicked good ice cream.',
@@ -211,10 +172,56 @@ angular.module('starter.services', [])
     face: '/img/taxi.jpg'
   }];
 
+
+    var cityChats = [{
+        id: 2,
+        name: 'Visiting city',
+        description: 'I should buy a boat',
+        messages: [
+            {
+                userId: 3,
+                text: 'I am going to stay at the city just for a couple of days. Anyone knows if it is worthy visiting Kafka musseum?',
+                date: 'Today, 1h ago'
+            },
+            {
+                userId: 4,
+                text: 'Beyond a shadow of a doubt, you shouldn\'t skip that musseum',
+                date: 'Today, 32min ago'
+            }
+        ],
+        face: '/img/duss-city.jpg'
+    }, {
+        id: 3,
+        name: 'Party',
+        description: 'Look at my mukluks!',
+        messages: [
+            {
+                userId: 3,
+                text: 'We are a group of three friends that want to go to Magaluf, Anyone is up for it?',
+                date: 'Today, 1h ago'
+            },
+            {
+                userId: 1,
+                text: 'Sure !!! :). What time?',
+                date: 'Today, 32min ago'
+            },
+            {
+                userId: 3,
+                text: '21.00 at Lobby',
+                date: 'Today, 2min ago'
+            }
+        ],
+        face: '/img/bagpack.jpg'
+    }
+    ];
+
   return {
     hotelAll: function() {
       return hotelChats;
     },
+      cityAll: function() {
+          return cityChats;
+      },
     hotelBasicAll: function() {
       return hotelBasicChats;
     },
@@ -232,6 +239,11 @@ angular.module('starter.services', [])
           return hotelChats[i];
         }
       }
+        for (var i = 0; i < cityChats.length; i++) {
+            if (cityChats[i].id === parseInt(chatId)) {
+                return cityChats[i];
+            }
+        }
       return null;
     }
   };

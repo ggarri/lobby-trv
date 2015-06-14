@@ -66,6 +66,7 @@ angular.module('starter.controllers', [])
 
     $scope.settings = UserSettings.getSettings();
     $scope.hotelChats = Chats.hotelAll();
+    $scope.cityChats = Chats.cityAll();
     $scope.hotelBasicChats = Chats.hotelBasicAll();
     $scope.remove = function(chat) {
         Chats.remove(chat);
