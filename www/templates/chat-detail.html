@@ -5,7 +5,9 @@
   The Friends service returns an array of friend data
 -->
 <ion-view>
-  <ion-content class="padding">
+  <ion-content has-bouncing="true" class="padding has-header has-footer"
+               delegate-handle="userMessageScroll">
+
     <a class="item item-thumbnail-left chat-title" href="#">
       <img class="header" ng-src="{{chat.face}}">
       <h2>{{chat.name}}</h2>

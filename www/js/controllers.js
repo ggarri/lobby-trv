@@ -73,7 +73,7 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, UserSettings, Users, Chats) {
+.controller('ChatDetailCtrl', function($scope, $stateParams, $ionicScrollDelegate, $timeout, UserSettings, Users, Chats) {
     $scope.chat = Chats.get($stateParams.chatId);
     $scope.user = Users.all;
     $scope.settings = UserSettings.getSettings();
@@ -84,15 +84,21 @@ angular.module('starter.controllers', [])
     }
 
     $scope.sendMessage = function(input, chat) {
+        var viewScroll = $ionicScrollDelegate.$getByHandle('userMessageScroll')
         if(!chat.messages) {
             chat.messages = [];
         }
+
         chat.messages.push({
             userId: $scope.settings.userId,
             text: input.message,
             date: 'Just now'
         });
         $scope.reset();
+
+        $timeout(function() {
+            viewScroll.scrollBottom(true);
+        }, 1000);
     }
 
     $scope.reset = function()
