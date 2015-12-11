@@ -1,6 +1,6 @@
 # trivago Lobby
-
 Welcome to trivago lobby
+
 ### Requirements 
 #### Step 1 
 Install nodeJs
@@ -9,3 +9,6 @@ $ npm install
 
 ###  Run Server
 $ node server.js
+
+### Deploy on your connected android phone with:
+ionic run android -l

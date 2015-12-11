@@ -4,11 +4,38 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{chat.name}}">
-  <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
+<ion-view>
+  <ion-content has-bouncing="true" class="padding has-header has-footer"
+               delegate-handle="userMessageScroll">
+
+    <a class="item item-thumbnail-left chat-title" href="#">
+      <img class="header" ng-src="{{chat.face}}">
+      <h2>{{chat.name}}</h2>
+    </a>
+
+    <div ng-repeat="message in chat.messages" class="message-wrapper">
+
+      <div class="chat-message" >
+
+        <img class="profile-pic" ng-class-odd="'right'" ng-class-even="'left'" ng-src="{{getUser(message.userId).img}}" />
+
+        <div class="chat-bubble" ng-class-odd="'right'" ng-class-even="'left'" >
+
+          <div class="message">
+            {{message.text}}
+          </div>
+
+          <div class="message-detail" ng-class-odd="'right'" ng-class-even="'left'">
+                              <span class="bold">{{getUser(message.userId).username}}</span>,
+            <span class="message-ago">{{message.date}}</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="cf"></div>
+    </div>
   </ion-content>
+  <input-message userid="{{settings.loggedUserId}}"></input-message>
 </ion-view>

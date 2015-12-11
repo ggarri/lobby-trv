@@ -1,15 +1,44 @@
-<ion-view view-title="Chats">
+<ion-view>
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+      <div class="item bar bar-header">
+        <div class="h1 title hotel-name">{{hotel.location}} -> {{hotel.name}}</div>
+        <button  ng-show="settings.checkInHotel" class="button button-clear ion-android-exit no-border" ng-click="removeHotelSelection()">
+          Checkout
+        </button>
+      </div>
+      <div class="item item-divider">
+        Services
+      </div>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in hotelBasicChats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}">
         <h2>{{chat.name}}</h2>
         <p>{{chat.lastText}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
+      </ion-item>
+      <div class="item item-divider">
+        Hotel Guests
+        <button class="button button-clear button-positive ion-plus-circled add-chat">
+          Create Chat
+        </button>
+      </div>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in hotelChats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+        <img ng-src="{{chat.face}}">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <div class="item item-divider">
+        City Travellers
+        <button class="button button-clear button-positive ion-plus-circled add-chat">
+          Create Chat
+        </button>
+      </div>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in cityChats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+        <img ng-src="{{chat.face}}">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
   </ion-content>

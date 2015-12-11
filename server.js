@@ -4,4 +4,4 @@
 
 var connect = require('connect');
 var serveStatic = require('serve-static');
-connect().use(serveStatic('www')).listen(8080, "0.0.0.0");
+connect().use(serveStatic('www')).listen(8888, "0.0.0.0");
